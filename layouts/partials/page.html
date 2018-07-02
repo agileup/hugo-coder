@@ -1,5 +1,5 @@
 <section class="container page">
-  <article>
+  <article{{ with .Layout }} class="{{ . }}" {{ end }}>
     <header>
       <h1>{{ .Title }}</h1>
     </header>

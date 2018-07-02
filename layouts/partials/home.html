@@ -1,11 +1,12 @@
 <section class="container centered">
-  <div class="about">
+  <div class="about home">
     <h1>{{ .Site.Params.author }}</h1>
     <h2>{{ .Site.Params.info }}</h2>
+    <q>{{ .Site.Params.quote }}</q>
     {{ with .Site.Params.social }}
     <ul>
       {{ range sort .}}
-      <li><a href="{{ .url }}">{{ .name }}</a></li>
+      <li><a target="_blank" href="{{ .url }}"><i class="fab {{ .icon }}">&nbsp;</i></a></li>
       {{ end }}
     </ul>
     {{ end }}
