@@ -1,12 +1,25 @@
 <section class="container centered">
   <div class="about home">
+    {{ with .Site.Params.avatarurl }}
+      <div class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
+    {{ end }}
     <h1>{{ .Site.Params.author }}</h1>
     <h2>{{ .Site.Params.info }}</h2>
     <q>{{ .Site.Params.quote }}</q>
     {{ with .Site.Params.social }}
     <ul>
       {{ range sort .}}
-      <li><a target="_blank" href="{{ .url }}"><i class="fab {{ .icon }}">&nbsp;</i></a></li>
+        {{ if .icon }}
+          <li>
+            <a href="{{ .url }}" aria-label="{{ .name }}">
+              <i class="{{ .icon }}" aria-hidden></i>
+            </a>
+          </li>
+        {{ else }}
+          <li>
+            <a href="{{ .url }}" aria-label="{{ .name }}">{{ .name }}</a>
+          </li>
+        {{ end }}
       {{ end }}
     </ul>
     {{ end }}
